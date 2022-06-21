@@ -23,7 +23,8 @@
               <table class="table mb-0">
                 <thead>
                 <tr>
-                  <th class="border-top-0">Product</th>
+                  <th class="border-top-0">Name</th>
+                  <th class="border-top-0">Thumbnaul</th>
                   <th class="border-top-0">Price</th>
                   <th class="border-top-0">Quantity</th>
                   <th class="border-top-0">Total</th>
@@ -31,90 +32,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td><img src="img/products/img-5.png" alt="" height="52">
-                    <p class="d-inline-block align-middle mb-0"><a href="" class="d-inline-block align-middle mb-0 f_s_16 f_w_600 color_theme2">Reebok Beg</a><br><span class="text-muted font_s_13">size-08 (Model 2019)</span></p>
+                <tr *ngFor="let product of products">
+                  <td>
+                    <div>{{product.name}}</div>
                   </td>
-                  <td>$99</td>
-                  <td><input class="form-control w-25" type="number" value="2" id="example-number-input1"></td>
-                  <td>$198</td>
-                  <td><a href="" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
-                </tr>
-                <tr>
-                  <td><img src="img/products/img-1.png" alt="" height="52">
-                    <p class="d-inline-block align-middle mb-0"><a href="" class="d-inline-block align-middle mb-0 f_s_16 f_w_600 color_theme2">White Shoes</a><br><span class="text-muted font_s_13">size-06 (Model 2019)</span></p>
+                  <td>
+                    <img src="{{product.thumbnail}}" alt="" height="100px">
                   </td>
-                  <td>$75</td>
-                  <td><input class="form-control w-25" type="number" value="2" id="example-number-input2"></td>
-                  <td>$150</td>
-                  <td><a href="" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
-                </tr>
-                <tr>
-                  <td><img src="img/products/img-2.png" alt="" height="52">
-                    <p class="d-inline-block align-middle mb-0"><a href="" class="d-inline-block align-middle mb-0 f_s_16 f_w_600 color_theme2">Lava Watch</a><br><span class="text-muted font_s_13">Pure Lether 100%(Model 2019)</span></p>
-                  </td>
-                  <td>$49</td>
-                  <td><input class="form-control w-25" type="number" value="1" id="example-number-input3"></td>
-                  <td>$49</td>
-                  <td><a href="" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
-                </tr>
-                <tr>
-                  <td><img src="img/products/02.png" alt="" height="52">
-                    <p class="d-inline-block align-middle mb-0"><a href="" class="d-inline-block align-middle mb-0 f_s_16 f_w_600 color_theme2">Important Shoes</a><br><span class="text-muted font_s_13">size-07 (Model 2019)</span></p>
-                  </td>
-                  <td>$99</td>
-                  <td><input class="form-control w-25" type="number" value="1" id="example-number-input4"></td>
-                  <td>$99</td>
-                  <td><a href="" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
+                  <td>{{product.price | currency:"VND"}}</td>
+                  <td><input class="form-control w-50" type="number" value="{{product.amount}}" id="example-number-input1"></td>
+                  <td>{{product.price * product.amount|currency:"VND"}}</td>
+                  <td><a (click)="delete(product.id)" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
                 </tr>
                 </tbody>
               </table>
             </div>
-            <div class="row justify-content-end mt_30">
-              <div class="col-md-6">
-                <div class="total-payment p-3">
-                  <h4 class="header-title">Total Payment</h4>
-                  <table class="table">
-                    <tbody>
-                    <tr>
-                      <td class="payment-title">Subtotal</td>
-                      <td>$496.00</td>
-                    </tr>
-                    <tr>
-                      <td class="payment-title">Shipping</td>
-                      <td>
-                        <ul class="list-unstyled mb-0">
-                          <li>
-                            <div class="radio radio-primary">
-                              <input type="radio" name="radio" id="radio_1" value="option_1" checked="checked">
-                              <label class="form-label" for="radio_1">Shipping Charge : $5.00</label>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="radio radio-primary">
-                              <input type="radio" name="radio" id="radio_2" value="option_2">
-                              <label class="form-label" for="radio_2">Express Shipping Charge : $10.00</label>
-                            </div>
-                          </li>
-                          <li><a href="" class="text-dark"><strong>Change Address</strong></a></li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="payment-title">Promo Code</td>
-                      <td>-$10.00</td>
-                    </tr>
-                    <tr>
-                      <td class="payment-title">Total</td>
-                      <td class="text-dark"><strong>$491.00</strong></td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
+              <div>
+              <h4>  Total Price: {{totalPrice|currency:"VND"}}</h4>
               </div>
-
+            <div>
+              <button class="btn btn-danger"(click)="payment()">Payment</button>
             </div>
-
           </div>
 
         </div>
