@@ -13,123 +13,118 @@
           <div class="white_card_body">
             <div class="QA_section">
               <div class="white_box_tittle list_header">
-                <h4>Table</h4>
-                <div class="box_right d-flex lms_block">
-                  <div class="serach_field_2">
-                    <div class="search_inner">
-                      <form active="#">
-                        <div class="search_field">
-                          <input type="text" placeholder="Search content here...">
-                        </div>
-                        <button type="submit"> <i class="ti-search"></i> </button>
-                      </form>
+                <div>
+                  <h4>Table</h4>
+                  <div class="ant-table-container">
+                    <div class="ant-row">
+                      <div class="ant-col-6"><input nz-input placeholder="Name Product ..." [(ngModel)]="keyword"/></div>
+                      <div class="ant-col-6"  style="margin-left: 10px">
+                        <nz-select nzShowSearch nzAllowClear style="width:240px;" nzPlaceHolder="Select a StatusOrder" [(ngModel)]="status">
+                          <nz-option nzLabel="DONE" nzValue="DONE"></nz-option>
+                          <nz-option nzLabel="CANCEL" nzValue="CANCEL"></nz-option>
+                        </nz-select>
+                      </div>
+                      <div class="ant-col-6" style="margin-bottom: 10px;">
+                        <button class="ant-btn ant-btn-primary" style="margin-right: 10px" (click)="search()">Search</button>
+                        <button class="ant-btn ant-btn-primary" (click)="refresh()">Refresh</button>
+                      </div>
+                      <div class="ant-col-6"><input nz-input placeholder="Name User ....." [(ngModel)]="userName"/></div>
+                      <div class="ant-col-6" style="margin-left: 10px">
+                        <nz-range-picker  [nzFormat]="dateFormat"
+                                          [(ngModel)]="date"
+                                          [nzDateRender]=""
+                        ></nz-range-picker>
+                      </div>
                     </div>
-                  </div>
-                  <div class="add_button ms-2">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#addcategory" class="btn_1">Add New</a>
                   </div>
                 </div>
               </div>
               <div class="QA_table mb_30">
 
-                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1525px;">
-                  <thead>
-                  <tr role="row"><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 165px;" aria-label="title: activate to sort column ascending">title</th><th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 241px;" aria-label="Category: activate to sort column descending" aria-sort="ascending">Category</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 231px;" aria-label="Teacher: activate to sort column ascending">Teacher</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 226px;" aria-label="Lesson: activate to sort column ascending">Lesson</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 146px;" aria-label="Enrolled: activate to sort column ascending">Enrolled</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 127px;" aria-label="Price: activate to sort column ascending">Price</th><th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 179px;" aria-label="Status: activate to sort column ascending">Status</th></tr>
-                  </thead>
-                  <tbody>
-
-
-
-
-
-
-
-
-
-
-
-                  <tr role="row" class="odd">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="even">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="odd">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="even">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="odd">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="even">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="odd">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="even">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="odd">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr><tr role="row" class="even">
-                    <th scope="row" tabindex="0" class=""> <a href="#" class="question_content"> title here 1</a></th>
-                    <td class="sorting_1">Category name</td>
-                    <td>Teacher James</td>
-                    <td>Lessons name</td>
-                    <td>16</td>
-                    <td>$25.00</td>
-                    <td><a href="#" class="status_btn">Active</a></td>
-                  </tr></tbody>
-                </table><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 11 entries</div><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><a class="paginate_button previous disabled" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous"><i class="ti-arrow-left"></i></a><span><a class="paginate_button current" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a><a class="paginate_button " aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></span><a class="paginate_button next" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" id="DataTables_Table_0_next"><i class="ti-arrow-right"></i></a></div></div>
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                  <table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0"
+                         role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1525px;">
+                    <thead>
+                    <tr role="row">
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 165px;" aria-label="title: activate to sort column ascending">
+                        OrderId
+                      </th>
+                      <th scope="col" class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 241px;" aria-label="Category: activate to sort column descending"
+                          aria-sort="ascending">Price
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 231px;" aria-label="Teacher: activate to sort column ascending">
+                        OrderStatus
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 226px;" aria-label="Lesson: activate to sort column ascending">
+                        PaymentStatus
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 226px;" aria-label="Lesson: activate to sort column ascending">
+                        InventoryStatus
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 146px;" aria-label="Enrolled: activate to sort column ascending">
+                        CreatedAt
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 179px;" aria-label="Status: activate to sort column ascending">
+                        Action
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let order of orders" role="row" class="odd">
+                      <th scope="row" tabindex="0" class="">{{order.id}}</th>
+                      <td class="sorting_1">{{order.totalPrice| currency: "VND"}}</td>
+                      <td>{{order.orderStatus}}</td>
+                      <td>{{order.paymentStatus}}</td>
+                      <td>{{order.inventoryStatus}}</td>
+                      <td>{{order.createdAt}}</td>
+                      <td>
+                       <i (click)="showModal(order.orderDetails)" style="color: dodgerblue;cursor: pointer" class="fa-solid fa-info"></i>
+                        <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()"
+                                  (nzOnOk)="handleOk()">
+                          <ng-container *nzModalContent>
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">ProductName</th>
+                                <th scope="col">Thumbnail</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Price</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let orderDetail of orderDetails">
+                                <th scope="row">{{orderDetail.product.id}}</th>
+                                <td id="price">{{orderDetail.product.name}}</td>
+                                <td><img class="img img-thumbnail" src="{{orderDetail.product.thumbnail}}" alt=""></td>
+                                <td>{{orderDetail.quantity}}</td>
+                                <td>{{orderDetail.unitPrice | currency:'VND'}}</td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </ng-container>
+                        </nz-modal>
+                        <a style="margin: 0 10px" href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href=""><i class="fa-solid fa-trash-can"></i></a>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                   <h3 style="color: red">Total Price:   {{totalPrice | currency:"VND"}}</h3>
+                  </div>
+                  <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                    <nz-pagination  [nzPageIndex]="page" (nzPageIndexChange)="handlePageChange($event)" [nzPageSize]="size"
+                                    [nzTotal]="total"></nz-pagination>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

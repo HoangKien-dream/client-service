@@ -57,7 +57,18 @@ export class CartComponent implements OnInit {
           console.log(res);
           if (res != null){
             this.message.success(`Đơn hàng ${res.id} của bạn đang đc xử lý`)
-            window.location.reload()
+            this.orderService.findById(res.id)
+              .subscribe({
+                next:(response) =>{
+                  if (response.orderStatus.equal("DONE")){
+                    this.message.success(`Đơn hàng ${response.id} được xử lý thành công`)
+                  }
+                  else {
+                    this.message.error(`Đơn hàng ${response.id} đã bị huỷ`)
+                  }
+                },
+                error:(e)=>console.error(e)
+              })
           }
           else {
             this.message.error("Đơn hàng bạn của bạn đang bị lỗi")
@@ -66,6 +77,5 @@ export class CartComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
-
   }
 }

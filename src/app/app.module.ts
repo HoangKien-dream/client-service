@@ -16,6 +16,11 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import {NzModalModule} from "ng-zorro-antd/modal";
+import {NzInputModule} from "ng-zorro-antd/input";
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 registerLocaleData(en);
 
@@ -35,7 +40,12 @@ registerLocaleData(en);
     FormsModule,
     NzPaginationModule,
     BrowserAnimationsModule,
-    NzMessageModule
+    NzMessageModule,
+    NzModalModule,
+    NzInputModule,
+    NzDatePickerModule,
+    NzDropDownModule,
+    NzSelectModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
