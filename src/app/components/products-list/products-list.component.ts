@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../../services/product.service'
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-products-list',
@@ -13,7 +14,8 @@ export class ProductsListComponent implements OnInit {
   size = 3;
   total?: any
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private message:NzMessageService ) {
   }
 
   ngOnInit(): void {
@@ -37,6 +39,7 @@ export class ProductsListComponent implements OnInit {
   }
 
   addToCart(product: any) {
+    this.message.success("Thêm sản phẩm thành công")
     var listProduct =localStorage.getItem("carItem");
     if (listProduct!=null){
       this.carItem = JSON.parse(listProduct)

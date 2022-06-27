@@ -20,6 +20,14 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
 import {NzDropDownModule} from "ng-zorro-antd/dropdown";
+
+import { ProfileComponent } from './components/profile/profile.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { ListAccountComponent } from './components/list-account/list-account.component';
+import { ListRoleComponent } from './components/list-role/list-role.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {NzRadioModule} from "ng-zorro-antd/radio";
 import {NzSelectModule} from "ng-zorro-antd/select";
 
 registerLocaleData(en);
@@ -31,7 +39,13 @@ registerLocaleData(en);
     OrdersListComponent,
     ProductDetailComponent,
     CartComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    ProfileComponent,
+    OrderDetailComponent,
+    ListAccountComponent,
+    ListRoleComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +59,8 @@ registerLocaleData(en);
     NzInputModule,
     NzDatePickerModule,
     NzDropDownModule,
+    NzSelectModule,
+    NzRadioModule,
     NzSelectModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],

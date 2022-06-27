@@ -32,7 +32,7 @@ export class OrdersListComponent implements OnInit {
   }
 
   getAll(): void {
-    this.orderService.getAll(this.page, this.size, this.keyword, this.userName, this.userPhone, this.status ,this.startDate, this.enDate)
+    this.orderService.getAll(this.page, this.size, this.keyword,this.startDate, this.enDate)
       .subscribe({
         next: (data) => {
           this.orders = data.content;

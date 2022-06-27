@@ -1,0 +1,83 @@
+<div class="main_content_iner ">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="dashboard_header mb_50">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="dashboard_header_title">
+                <h3> Resister</h3>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="dashboard_breadcam text-end">
+                <p><a href="index.html">Dashboard</a> <i class="fas fa-caret-right"></i> Resister</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="white_box mb_30">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+              <div class="modal-content cs_modal">
+                <div class="modal-header theme_bg_1 justify-content-center">
+                  <h5 class="modal-title text_white">Resister</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div class="">
+                      <input [(ngModel)]="username" type="text" class="form-control" placeholder="Username">
+                    </div>
+                    <div class="">
+                      <input [(ngModel)]="email" type="text" class="form-control" placeholder="Enter your email">
+                    </div>
+                    <div class="">
+                      <input [(ngModel)]="password" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="">
+                      <input [(ngModel)]="confirmPass" type="password" class="form-control" placeholder="ConfirmPassword">
+                    </div>
+                    <div style="margin: 10px 0">
+                      Gender
+                      <div>
+                        <nz-radio-group [(ngModel)]="gender">
+                          <label nz-radio nzValue="1">Female</label>
+                          <label nz-radio nzValue="-1">Male</label>
+                          <label nz-radio nzValue="0">Other</label>
+                        </nz-radio-group>
+                      </div>
+                    </div>
+                    <div class="">
+                      Birthday
+                      <div>
+                        <nz-date-picker [(ngModel)]="birthday" (ngModelChange)="change($event)"></nz-date-picker>
+                      </div>
+                    </div>
+                    <div class="">
+                      <input type="text" [(ngModel)]="phone" class="form-control" placeholder="Phone">
+                    </div>
+                    <div class="">
+                      <input type="text" [(ngModel)]="address" class="form-control" placeholder="Address">
+                    </div>
+                    <div class="">
+                      <input type="text" [(ngModel)]="thumbnail" class="form-control" placeholder="Thumbnail">
+                    </div>
+                    <div>
+                      <button class="btn btn-dark" (click)="register()">Register</button>
+                    </div>
+                    <p>Need an account? <a data-bs-toggle="modal" data-bs-target="#sing_up" data-bs-dismiss="modal" href="#">Log in</a></p>
+                    <div class="text-center">
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#forgot_password" data-bs-dismiss="modal" class="pass_forget_btn">Forget Password?</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

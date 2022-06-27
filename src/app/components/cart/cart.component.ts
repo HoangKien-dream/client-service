@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from '../../services/order.service'
 import { NzMessageService } from 'ng-zorro-antd/message';
+import {Router, RouterModule, Routes} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,8 @@ export class CartComponent implements OnInit {
   products?:any
   totalPrice=0;
   constructor(private orderService:OrderService,
-              private message:NzMessageService) { }
+              private message:NzMessageService,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.getCartItems()
@@ -55,25 +57,10 @@ export class CartComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          if (res != null){
-            this.message.success(`Đơn hàng ${res.id} của bạn đang đc xử lý`)
-            this.orderService.findById(res.id)
-              .subscribe({
-                next:(response) =>{
-                  if (response.orderStatus.equal("DONE")){
-                    this.message.success(`Đơn hàng ${response.id} được xử lý thành công`)
-                  }
-                  else {
-                    this.message.error(`Đơn hàng ${response.id} đã bị huỷ`)
-                  }
-                },
-                error:(e)=>console.error(e)
-              })
-          }
-          else {
-            this.message.error("Đơn hàng bạn của bạn đang bị lỗi")
-          }
-          localStorage.clear();
+          this.message.success(`Đơn hàng ${res.id} của bạn đang đc xử lý`)
+          localStorage.removeItem("carItem");
+          localStorage.setItem("orderId",res.id);
+          this.router.navigate(["/check-out"])
         },
         error: (e) => console.error(e)
       });
