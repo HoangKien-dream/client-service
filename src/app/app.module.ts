@@ -23,12 +23,16 @@ import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
-import { ListAccountComponent } from './components/list-account/list-account.component';
-import { ListRoleComponent } from './components/list-role/list-role.component';
+import { ListAccountComponent } from './components/admin/list-account/list-account.component';
+import { ListRoleComponent } from './components/admin/list-role/list-role.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {NzRadioModule} from "ng-zorro-antd/radio";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import { CreateProductComponent } from './components/admin/create-product/create-product.component';
+import { UpdateProductComponent } from './components/admin/update-product/update-product.component';
+import { ListProductComponent } from './components/admin/list-product/list-product.component';
+import { ListOrderComponent } from './components/admin/list-order/list-order.component';
 
 registerLocaleData(en);
 
@@ -45,7 +49,11 @@ registerLocaleData(en);
     ListAccountComponent,
     ListRoleComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateProductComponent,
+    UpdateProductComponent,
+    ListProductComponent,
+    ListOrderComponent
   ],
   imports: [
     BrowserModule,

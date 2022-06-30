@@ -7,6 +7,12 @@ import {CheckOutComponent} from './components/check-out/check-out.component';
 import {OrdersListComponent} from './components/orders-list/orders-list.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
+import {OrderDetailComponent} from './components/order-detail/order-detail.component';
+import {ProfileComponent} from './components/profile/profile.component';
+import {ListAccountComponent} from './components/admin/list-account/list-account.component';
+import {ListRoleComponent} from './components/admin/list-role/list-role.component';
+import {CreateProductComponent} from './components/admin/create-product/create-product.component';
+
 
 const routes: Routes = [
   {path:'', redirectTo:'products',pathMatch:'full'},
@@ -15,8 +21,14 @@ const routes: Routes = [
   {path:'cart', component:CartComponent},
   {path:'check-out', component:CheckOutComponent},
   {path:'orders', component:OrdersListComponent},
+  {path:'orders/:id',component:OrderDetailComponent},
+  {path:'profile', component:ProfileComponent},
+  {path:'list-account',component:ListAccountComponent},
+  {path:'list-role',component:ListRoleComponent},
+  {path:'create-product', component:CreateProductComponent},
   {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent}
+  {path:'register',component:RegisterComponent},
+
 ];
 
 @NgModule({

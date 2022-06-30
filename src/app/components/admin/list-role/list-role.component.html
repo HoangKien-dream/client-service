@@ -1,0 +1,111 @@
+<div class="main_content_iner ">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="white_card card_height_100 mb_30">
+          <div class="white_card_header">
+            <div class="box_header m-0">
+              <div class="main-title">
+                <h3 class="m-0">Data table</h3>
+              </div>
+            </div>
+          </div>
+          <div class="white_card_body">
+            <div class="QA_section">
+              <div class="white_box_tittle list_header">
+                <div>
+                  <h4>Table</h4>
+<!--                  <div class="ant-table-container">-->
+<!--                    <div class="ant-row">-->
+<!--                      <div class="ant-col-6"><input nz-input placeholder="Name Product ..." [(ngModel)]="keyword"/></div>-->
+<!--                      <div class="ant-col-6"  style="margin-left: 10px">-->
+<!--                        <nz-select nzShowSearch nzAllowClear style="width:240px;" nzPlaceHolder="Select a StatusOrder" [(ngModel)]="status">-->
+<!--                          <nz-option nzLabel="DONE" nzValue="DONE"></nz-option>-->
+<!--                          <nz-option nzLabel="CANCEL" nzValue="CANCEL"></nz-option>-->
+<!--                        </nz-select>-->
+<!--                      </div>-->
+<!--                      <div class="ant-col-6" style="margin-bottom: 10px;">-->
+<!--                        <button class="ant-btn ant-btn-primary" style="margin-right: 10px" (click)="search()">Search</button>-->
+<!--                        <button class="ant-btn ant-btn-primary" (click)="refresh()">Refresh</button>-->
+<!--                      </div>-->
+<!--                      <div class="ant-col-6"><input nz-input placeholder="Name User ....." [(ngModel)]="userName"/></div>-->
+<!--                      <div class="ant-col-6" style="margin-left: 10px">-->
+<!--                        <nz-range-picker  [nzFormat]="dateFormat"-->
+<!--                                          [(ngModel)]="date"-->
+<!--                                          [nzDateRender]=""-->
+<!--                        ></nz-range-picker>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                </div>
+              </div>
+              <div class="QA_table mb_30">
+
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                  <table class="table lms_table_active dataTable no-footer dtr-inline" id="DataTables_Table_0"
+                         role="grid" aria-describedby="DataTables_Table_0_info" style="width: 1525px;">
+                    <thead>
+                    <tr role="row">
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 165px;" aria-label="title: activate to sort column ascending">
+                        Id
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 231px;" aria-label="Teacher: activate to sort column ascending">
+                        Name
+                      </th>
+                      <th scope="col" class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                          colspan="1" style="width: 179px;" aria-label="Status: activate to sort column ascending">
+                        Action
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let role of roles" role="row" class="odd">
+                      <th scope="row" tabindex="0" class="">{{role.id}}</th>
+                      <td>{{role.name}}</td>
+                      <td>
+                        <i (click)="showModal(role.permissions)" style="color: dodgerblue;cursor: pointer" class="fa-solid fa-info"></i>
+                        <nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()"
+                                  (nzOnOk)="handleOk()">
+                          <ng-container *nzModalContent>
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let permission of permissions">
+                                <th scope="row">{{permission.id}}</th>
+                                <td id="price">{{permission.name}}</td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </ng-container>
+                        </nz-modal>
+                        <a style="margin: 0 10px" href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href=""><i class="fa-solid fa-trash-can"></i></a>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+<!--                  <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">-->
+<!--                    <h3 style="color: red">Total Price:   {{totalPrice | currency:"VND"}}</h3>-->
+<!--                  </div>-->
+<!--                  <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">-->
+<!--                    <nz-pagination  [nzPageIndex]="page" (nzPageIndexChange)="handlePageChange($event)" [nzPageSize]="size"-->
+<!--                                    [nzTotal]="total"></nz-pagination>-->
+<!--                  </div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+      </div>
+    </div>
+  </div>
+</div>

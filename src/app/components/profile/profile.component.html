@@ -1,1 +1,64 @@
-<p>profile works!</p>
+<div class="main_content_iner">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="dashboard_header mb_50">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="dashboard_header_title">
+                <h3> Profilebox</h3>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="dashboard_breadcam text-end">
+                <p><a href="index.html">Dashboard</a> <i class="fas fa-caret-right"></i> Profilebox</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div  style="">
+      <div class="col-md-12 col-lg-12 col-xl-12 box-col-12">
+        <div class="card custom-card">
+          <div class="card-header"><img class="img-fluid" src="img/profilebox/1.jpg" alt="" data-original-title="" title=""></div>
+          <div class="card-profile"><img class="rounded-circle" src="{{information.thumbnail}}" alt="" data-original-title="" title=""></div>
+          <ul class="card-social">
+            <li><a href="#" data-original-title="" title=""><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" data-original-title="" title=""><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="#" data-original-title="" title=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" data-original-title="" title=""><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" data-original-title="" title=""><i class="fas fa-rss"></i></a></li>
+          </ul>
+          <div class="text-center profile-details">
+            <h4>{{information.username}}</h4>
+            <h6>Manager</h6>
+            <h6>{{information.birthday}}</h6>
+          </div>
+          <div class="card-footer row">
+            <div class="col-6 col-sm-6">
+              <h4>Phone</h4>
+              <p class="counter">{{information.phone}}</p>
+            </div>
+            <div class="col-6 col-sm-6">
+              <h4>Gender</h4>
+              <p class="counter" [ngSwitch]="information.gender">
+                    <span *ngSwitchCase="1">Male</span>
+                    <span *ngSwitchCase="-1">Female</span>
+                    <span *ngSwitchCase="0">Other</span>
+              </p>
+            </div>
+            <div class="col-6 col-sm-6" style="border-left:black solid 0">
+              <h4>Address</h4>
+              <p><span class="counter">{{information.address}}</span>M</p>
+            </div>
+            <div class="col-6 col-sm-6">
+              <h4>Email</h4>
+              <p class="counter">{{information.email}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
