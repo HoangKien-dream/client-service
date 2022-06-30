@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {format, formatISO} from 'date-fns';
 import {AuthenticationService} from '../../services/authentication.service'
+import {Router, RouterModule, Routes} from '@angular/router';
+import {NzMessageService} from "ng-zorro-antd/message";
 import { en_US, NzI18nService, zh_CN } from 'ng-zorro-antd/i18n';
 
 @Component({
@@ -19,7 +21,9 @@ export class RegisterComponent implements OnInit {
   address?:any;
   gender?:any;
 
-  constructor(private authenService:AuthenticationService) { }
+  constructor(private authenService:AuthenticationService,
+              private message:NzMessageService,
+              private router:Router) { }
 
   ngOnInit(): void {
     console.log(this.gender)
@@ -44,7 +48,14 @@ export class RegisterComponent implements OnInit {
     this.authenService.register(data)
       .subscribe({
          next:(res)=>{
-           console.log(res)
+          if (res != null){
+            this.router.navigate(['login']).then(()=>{
+              this.message.success("Đăng ký thành công")
+            })
+          }
+          else {
+            this.message.error("Đăng ký thất bại")
+          }
          },
         error:(e)=>console.error(e)
       })

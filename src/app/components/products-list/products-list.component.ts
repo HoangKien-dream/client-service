@@ -13,17 +13,35 @@ export class ProductsListComponent implements OnInit {
   page = 1;
   size = 3;
   total?: any
+  keyword = "";
+  categoryId = 0;
+  intPrice:any;
+  startPrice=0
+  endPrice=0
+  categorise:any
 
   constructor(private productService: ProductService,
               private message:NzMessageService ) {
   }
 
   ngOnInit(): void {
+    this.getCategory()
     this.getAll()
   }
 
+  getCategory(){
+    this.productService.getCategory()
+      .subscribe({
+        next:(res) =>{
+          this.categorise = res
+          console.log(res)
+    },
+        error:(e)=>console.error(e)
+      })
+  }
+
   getAll() {
-    this.productService.getAll(this.page, this.size)
+    this.productService.getAll(this.page,this.size,this.keyword,this.categoryId,this.startPrice,this.endPrice)
       .subscribe({
         next: (res) => {
           this.page = res.pageable.pageNumber + 1;
@@ -65,5 +83,35 @@ export class ProductsListComponent implements OnInit {
   handlePageChange(event: number) {
     this.page = event;
     this.getAll()
+  }
+
+  search() {
+    this.getAll()
+  switch (this.intPrice){
+    case "0":
+      this.getAll()
+      break;
+    case "1":
+      this.startPrice =10000000;
+      this.endPrice = 30000000;
+      this.getAll()
+      break;
+    case "2":
+      this.startPrice =30000000;
+      this.endPrice = 60000000;
+      this.getAll()
+      break;
+    case "3":
+      this.startPrice =60000000;
+      this.endPrice = 100000000;
+      this.getAll()
+      break;
+  }
+  }
+
+  clear(){
+    this.intPrice = 0;
+    this.categoryId = 0;
+    this.keyword = ""
   }
 }

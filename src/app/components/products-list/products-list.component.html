@@ -10,6 +10,32 @@
               <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
               <li class="breadcrumb-item active">Product</li>
             </ol>
+            <div class="row" style="margin-top: 20px">
+              <div class="ant-col-12">
+                <input nz-input placeholder="Enter name Product" [(ngModel)]="keyword"/>
+              </div>
+              <div class="ant-col-6">
+                <nz-select [(ngModel)]="categoryId" nzPlaceHolder="-- Chose Category --">
+                  <nz-option *ngFor="let category of categorise" nzValue="{{category.id}}"
+                             nzLabel="{{category.name}}"></nz-option>
+                </nz-select>
+              </div>
+              <div style="margin-top: 20px" class="ant-col-12">
+                <nz-select [(ngModel)]="intPrice" nzPlaceHolder="-- Chose Price --">
+                  <nz-option nzValue="1"
+                             nzLabel="{{10000000|currency:'VND'}}  - {{30000000|currency:'VND'}}"></nz-option>
+                  <nz-option nzValue="2"
+                             nzLabel="{{30000000|currency:'VND'}}  - {{60000000|currency:'VND'}}"></nz-option>
+                  <nz-option nzValue="3"
+                             nzLabel="{{60000000|currency:'VND'}}  - {{100000000|currency:'VND'}}"></nz-option>
+                </nz-select>
+              </div>
+
+              <div style="margin-top: 20px" class="ant-col-12">
+                 <button style="margin-right: 10px" class="btn btn-danger" (click)="search()">Search</button>
+                <button class="btn btn-danger" (click)="clear()">Refresh</button>
+              </div>
+            </div>
           </div>
           <a href="#" class="white_btn3">Create Report</a>
         </div>
@@ -22,9 +48,13 @@
             <div class="ribbon1 rib1-primary"><span class="text-white text-center rib1-primary">50% off</span></div>
             <img src="{{product.thumbnail}}" alt="" class="d-block mx-auto my-4" height="150">
             <div class="row my-4">
-              <div class="col"><span class="badge_btn_3  mb-1">Life Style</span> <a href="/products/{{product.id}}" class="f_w_400 color_text_3 f_s_14 d-block">{{product.name}}</a></div>
+              <div class="col"><span class="badge_btn_3  mb-1">Life Style</span> <a href="/products/{{product.id}}"
+                                                                                    class="f_w_400 color_text_3 f_s_14 d-block">{{product.name}}</a>
+              </div>
               <div class="col-auto">
-                <h4 class="text-dark mt-0">{{product.price | currency:"VND"}} <small class="text-muted font-14"><del>$99.00</del></small></h4>
+                <h4 class="text-dark mt-0">{{product.price | currency:"VND"}} <small class="text-muted font-14">
+                  <del>$99.00</del>
+                </small></h4>
                 <ul class="list-inline mb-0 product-review align-self-center">
                   <li class="list-inline-item"><i class="fas fa-star text-warning font-16"></i></li>
                   <li class="list-inline-item"><i class="fas fa-star text-warning font-16 ms-n2"></i></li>
@@ -42,8 +72,8 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 20px" id="DataTables_Table_0_paginate">
-      <nz-pagination  [nzPageIndex]="page" (nzPageIndexChange)="handlePageChange($event)" [nzPageSize]="size"
-                      [nzTotal]="total"></nz-pagination>
-      </div>
+      <nz-pagination [nzPageIndex]="page" (nzPageIndexChange)="handlePageChange($event)" [nzPageSize]="size"
+                     [nzTotal]="total"></nz-pagination>
+    </div>
   </div>
 </div>

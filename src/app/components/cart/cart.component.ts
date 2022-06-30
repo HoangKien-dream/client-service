@@ -33,10 +33,20 @@ export class CartComponent implements OnInit {
   getTotalPrice(){
     let total = 0
     for (let product of this.products) {
+      console.log(product.amout)
       total+=(product.price * product.amount);
     }
     this.totalPrice = total;
     console.log(this.totalPrice)
+  }
+
+  update(){
+    localStorage.setItem("carItem",JSON.stringify(this.products))
+    let total = 0
+    for (let product of this.products ){
+      total +=(product.price * product.amount);
+    }
+    this.totalPrice = total;
   }
 
   payment() {
@@ -53,16 +63,18 @@ export class CartComponent implements OnInit {
        data.orderDetails.push(oder)
     }
     data.orderDetails.shift()
-    this.orderService.create(data)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          this.message.success(`Đơn hàng ${res.id} của bạn đang đc xử lý`)
-          localStorage.removeItem("carItem");
-          localStorage.setItem("orderId",res.id);
-          this.router.navigate(["/check-out"])
-        },
-        error: (e) => console.error(e)
-      });
+    console.log(data)
+    // this.orderService.create(data)
+    //   .subscribe({
+    //     next: (res) => {
+    //       console.log(res);
+    //       this.message.success(`Đơn hàng ${res.id} của bạn đang đc xử lý`)
+    //       localStorage.removeItem("carItem");
+    //       localStorage.setItem("orderId",res.id);
+    //       this.router.navigate(["/check-out"])
+    //     },
+    //     error: (e) => console.error(e)
+    //   });
   }
+
 }

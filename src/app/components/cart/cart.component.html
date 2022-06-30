@@ -40,7 +40,7 @@
                     <img src="{{product.thumbnail}}" alt="" height="100px">
                   </td>
                   <td>{{product.price | currency:"VND"}}</td>
-                  <td><input class="form-control w-50" type="number" value="{{product.amount}}" id="example-number-input1"></td>
+                  <td><input class="form-control w-50" type="number" [(ngModel)]="product.amount"   value="{{product.amount}}" id="example-number-input1"></td>
                   <td>{{product.price * product.amount|currency:"VND"}}</td>
                   <td><a (click)="delete(product.id)" class="text-dark"><i class="far fa-times-circle font_s_18"></i></a></td>
                 </tr>
@@ -48,11 +48,14 @@
               </table>
             </div>
               <div>
-              <h4>  Total Price: {{totalPrice|currency:"VND"}}</h4>
+              <h4 style="color: red;font-weight: bold">  Total Price: {{totalPrice|currency:"VND"}}</h4>
               </div>
             <div>
-              <button class="btn btn-danger"(click)="payment()">Payment</button>
+              <button style="margin-right: 10px" class="btn btn-danger"(click)="payment()">Payment</button>
+              <button class="btn btn-danger"(click)="update()">Update</button>
             </div>
+
+
           </div>
 
         </div>

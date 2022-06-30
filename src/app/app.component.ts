@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthenticationService} from './services/authentication.service';
 import {NzMessageService} from "ng-zorro-antd/message";
-
+import {Router, RouterModule, Routes} from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,8 @@ export class AppComponent {
   title = 'clientService';
   information:any;
   constructor(private authentication: AuthenticationService,
-              private message:NzMessageService ) {
+              private message:NzMessageService ,
+              private  router:Router) {
   }
 
   ngOnInit(): void {
@@ -32,6 +33,10 @@ export class AppComponent {
   }
 
   logOut() {
-    localStorage.removeItem("token-day-ne");
+    localStorage.clear()
+    this.router.navigate(['login']).then(()=>{
+      this.message.success("Đăng xuất thành công")
+      window.location.reload()
+    })
   }
 }
